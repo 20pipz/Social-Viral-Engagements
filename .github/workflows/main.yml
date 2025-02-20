@@ -1,0 +1,15 @@
+name: Uptime Monitor
+
+on:
+  schedule:
+    # Runs every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:  # Allows manual triggering for testing
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Replit URL to keep the bot awake
+        run: curl -I https://replit.com/@twentypipz/Python#main.py
